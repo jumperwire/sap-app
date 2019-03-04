@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="     http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd     http://camel.apache.org/schema/spring    http://camel.apache.org/schema/spring/camel-spring.xsd">
+    <camelContext id="camel" xmlns="http://camel.apache.org/schema/spring">
+        <route id="simple-route">
+            <from id="_to1" uri="direct:start"/>
+            <setHeader headerName="CamelNetWeaverCommand" id="_setHeader1">
+                <constant>ProductSet?(%270500000001%27)/ToLineItems</constant>
+            </setHeader>
+            <to id="route-timer" uri="sap-netweaver:https://sapes5.sapdevcenter.com/sap/opu/odata/iwbep/GWSAMPLE_BASIC/?password=hAj%*Z5^T@utbLat5NC1&amp;username=S0019359463"/>
+        </route>
+    </camelContext>
+</beans>
