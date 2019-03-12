@@ -1,3 +1,49 @@
+
+ 
+@font-face {
+  font-family: 'redhat-display';
+  src: url('../RedHatDisplay-Regular.eot');
+  src: url('../RedHatDisplay-Regular.eot?#iefix') format('embedded-opentype'),
+       url('../RedHatDisplay-Regular.woff2') format('woff2'),
+       url('../RedHatDisplay-Regular.woff') format('woff');
+       font-weight: 400;
+       font-style: normal;
+}
+
+@font-face {
+  font-family: 'redhat-display';
+  src: url('../RedHatDisplay-Medium.eot');
+  src: url('../RedHatDisplay-Medium?#iefix') format('embedded-opentype'),
+       url('../RedHatDisplay-Medium.woff2') format('woff2'),
+       url('../RedHatDisplay-Medium.woff') format('woff');
+       font-weight: 600;
+       font-style: normal;
+}
+
+
+ 
+
+@font-face {
+  font-family: 'redhat-display';
+  src: url('../fonts/RedHatDisplay-Boldt');
+  src: url('../fonts/RedHatDisplay-Bold') format('embedded-opentype'),
+       url('../fonts/RedHatDisplay-Bold.woff2') format('woff2'),
+       url('../fonts/RedHatDisplay-Bold.woff') format('woff');
+       font-weight: 700;
+       font-style: normal;
+}
+
+@font-face {
+  font-family: 'redhat-display';
+  src: url('../fonts/RedHatDisplay-Black.eot');
+  src: url('../fonts/RedHatDisplay-Black.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/RedHatDisplay-Black.woff2') format('woff2'),
+       url('../fonts/RedHatDisplay-Black.woff') format('woff');
+       font-weight: 900;
+       font-style: normal;
+}
+
+
 /*
  * Globals
  */
@@ -22,11 +68,11 @@ html,
 body { margin:0; 
   height: 100%;
   background-color: #000;
-  font-family:sans-serif;
+  font-family: redhat-display, sans-serif;
   color: #fff;
 }
 
-body{padding: 1rem;}
+body{padding: 1rem; font-family: redhat-display, sans-serif}
 
 
 .nav-masthead .nav-link + .nav-link {
@@ -46,24 +92,30 @@ body{padding: 1rem;}
   color: rgba(255, 255, 255, .5);
 }
 
-body:before{height:4rem; background-color:rgba(0,0,0,0.75); display:block; content:""; position:fixed; width: 100%; top:0; z-index:0;}
+body:before{height:4rem; background-color:rgba(0,0,0,0.75); display:block; content:""; position:fixed; width: 100%; top:0; z-index:1;}
 
 
 table{width: 100%;max-width: 100%;border: .1em solid #345;border-color:#345;margin: 1rem 0;border-collapse: collapse;}
-table  td{border-bottom: .1em solid ; padding: .5em;border-color:#666;}
+table  td{border-bottom: .1em solid ; padding: .5em;border-color:#666; font-weight: 400; font-family: redhat-display,sans-serif;}
 table th{text-align:left;  background-color:#123; =border-bottom:.2em solid ; border-color:#345; padding:1em .5em  }
 
 
 #view:checked ~ .bootstrap-table table{border:none; background-color:transparent;}
 #view:checked ~ .bootstrap-table tbody{display:grid;grid-template-columns:  25% 25% 25% 25%; }
 
-#view:checked ~ .bootstrap-table td:nth-child(2){font-size: 2rem; padding:1rem;}
-@media (max-width:1000px){
+#view:checked ~ .bootstrap-table td:nth-child(2){font-size: 2rem; font-weight:900; padding:1rem;}
+@media (max-width:1400px){
   #view:checked ~ .bootstrap-table tbody{display:grid;grid-template-columns:  33.33% 33.33% 33.33% ; }
+}
+
+@media (max-width:800px){
+  #view:checked ~ .bootstrap-table tbody{display:grid;grid-template-columns:   50% 50% ; }
 
 }
 
 #view:checked ~ .bootstrap-table  table tr{display:block;  border: .1em solid #345; background-color:#234; margin: 1rem; float:left } 
+
+#view:checked ~ .bootstrap-table  table tr:hover{ border-color:#789; position:relative; transition: all .3s ease}
 #view:checked ~ .bootstrap-table  table td{display:block; border:none;}
 #view:checked ~ .bootstrap-table  thead{display:none}
 
@@ -71,7 +123,7 @@ table th{text-align:left;  background-color:#123; =border-bottom:.2em solid ; bo
 
 
 
-[for="view"]{  position: fixed; top:0 ; right:0;cursor:pointer; display:inline-block; width: 10rem; height: 3.7rem; }
+[for="view"]{  position: fixed; top:0 ; right:0;cursor:pointer; display:inline-block; z-index:3; width: 10rem; height: 3.7rem; }
 [for="view"] svg{display:inline-block; max-height: 3rem;}
 [for="view"] path{fill: #777; transform:scale(.95); transition: all .25s cubic-bezier(.4,.1,.1,1.2);}
 
@@ -89,7 +141,7 @@ transform:scale(1);}
 
 
 
-.indicator{display:block;  position:fixed; height:.3em; width: 5rem; top: 3.5rem; right:5rem;background-color:#e00; transition: all .3s cubic-bezier(.5,.1,.1,1)}
+.indicator{display:block;  position:fixed; height:.3em;  z-index:3;width: 5rem; top: 3.5rem; right:5rem;background-color:#e00; transition: all .3s cubic-bezier(.5,.1,.1,1)}
 
 
 
@@ -108,20 +160,22 @@ th{border-bottom:.1em solid;border-color:#567; padding: .75em; text-align:left}
 
 
 
-table tr:hover td{background-color:#567}
+table tr:hover,
+table tr:hover td{}
 table tr:hover td:first-child{color:#abc}
 
 
-.search input{font-size: 1rem; 
+.search input{font-size: 1rem;  z-index:4;
  transition: all .2s ease;
 box-sizing:border-box; appearance:none; padding: 1rem;
 background-color: transparent; border:0; 
 box-shadow: 0  .2rem; color:currentcolor; outline:none;
 font-size: 1.25rem;
-display:block; position:fixed;top: .05rem; right:10rem; width: 40vw;}
+display:block; position:fixed;top: .05rem; right:12rem; width: 40vw;}
 
 .search input:focus{box-shadow: 0 .3rem #e00;}
 
-header{position:fixed; width: 30vw;left:1rem; top:0;  text-transform:uppercase; letter-spacing:.1em;}
+header{position:fixed; width: 30vw;left:1rem; top:0;  z-index:4; text-transform:uppercase; letter-spacing:.1em;}
 
 body{padding-top: 3rem;}
+
