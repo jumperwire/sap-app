@@ -101,7 +101,7 @@ table th{text-align:left;   border-bottom:.2em solid ; border-color:#345; paddin
 #view:checked ~ .bootstrap-table table{border:none; background-color:transparent;}
 #view:checked ~ .bootstrap-table tbody{display:grid;grid-template-columns:  25% 25% 25% 25%; }
 
-#view:checked ~ .bootstrap-table td:nth-child(2){font-size: 2rem; font-weight:900; padding:1rem;}
+#view:checked ~ .bootstrap-table td:nth-child(2){font-size: 1.5rem;font-weight:900;padding: 1rem .5rem;color: white;opacity: 1;}
 @media (max-width:1400px){
   #view:checked ~ .bootstrap-table tbody{display:grid;grid-template-columns:  33.33% 33.33% 33.33% ; }
 }
@@ -115,7 +115,7 @@ table th{text-align:left;   border-bottom:.2em solid ; border-color:#345; paddin
 }
 
 table td{padding: 1em 1em}
-#view:checked ~ .bootstrap-table  table td{padding: .5em;}
+#view:checked ~ .bootstrap-table  table td{padding: .5em;opacity: .5;}
 #view:checked ~ .bootstrap-table  table tr{display:block;  border: .1em solid #345; background-color:#234; margin: 1rem; float:left } 
 
 #view:checked ~ .bootstrap-table  table tr:hover{ border-color:#e00; position:relative; transition: all .3s ease}
@@ -210,4 +210,10 @@ tr:nth-child(13n){animation-delay: 1.3s;}
 tr:nth-child(14n){animation-delay: 1.4s;}
 tr:nth-child(15n){animation-delay: 1.5s;}
 tr:nth-child(15n){animation-delay: 1.6s;}
+
+
+table 
+thead tr td,
+table  thead,
+table  thead  tr{ transition: 0 !important; animation-duration: 0s; animation-delay:0;}
 
